@@ -1,12 +1,8 @@
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import prisma from "../../helper/prisma_cilent";
 
 export const UserRepository = {
   async createUser(data: { name: string; email?: string; address: string }) {
-    return prisma.user.create({
-      data,
-    });
+    return prisma.user.create({ data });
   },
 
   async getAllUsers() {
